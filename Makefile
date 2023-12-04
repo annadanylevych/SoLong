@@ -1,4 +1,4 @@
-SRCS = 
+SRCS = test.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -12,17 +12,18 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = so_long
 
-INC = minilib/
+HEADER = so_long.h
+
+INC = mlx/
 
 %.o:%.c	$(HEADER) Makefile
-		$(CC) $(CFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS) make_libs
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFTDIR) -lft -o $(NAME)
-	$(CC) -02 $(OBJS) -L$(INC) -lmlx -o $(NAME)
-
+	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFTDIR) \
+	-lft -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 make_libs:
 	$(MAKE) -C $(LIBFTDIR)
@@ -31,7 +32,9 @@ make_libs:
 clean:
 	$(RM) $(OBJS) 
 	$(MAKE) -C $(LIBFTDIR) clean
+	$(MAKE) -C $(INC) clean
 
 fclean: clean
 	$(RM) $(NAME) 
 	$(MAKE) -C $(LIBFTDIR) fclean
+	$(MAKE) -C $(INC) clean
