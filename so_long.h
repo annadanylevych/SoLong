@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/04 11:29:02 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/09 20:26:18 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,17 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include "mlx/mlx.h"
+
+typedef	struct	s_window
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		height;
+	int		width;
+}			t_window;
+
+
+
+t_window new_program(int w, int h, char *str);
 
 #endif
