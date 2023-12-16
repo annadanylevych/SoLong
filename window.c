@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:59:38 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/09 20:38:52 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/16 21:41:31 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,16 @@ t_window new_program(int w, int h, char *str)
 	return ((t_window) {mlx_ptr, mlx_new_window(mlx_ptr, w, h, str), w, h});
 }
 
-
-int main(void)
+void start(char **argv)
 {
-	t_window	window;
+	t_long	game;
 	void	*img;
-	t_persona perso;
-	perso.x = 100;
 	
-	window = new_program(1920, 1080, "So Long");
-	img = mlx_xpm_file_to_image(window.mlx_ptr, "image.xpm", &(window.width), &(window.height));
-	
-	mlx_put_image_to_window(window.mlx_ptr, window.win_ptr, img, 100, 10);
-	if (window.mlx_ptr == NULL || window.win_ptr == NULL)
+	game.window = new_program(1920, 1080, "So Long");
+	img = mlx_xpm_file_to_image(game.win->mlx_ptr, "background.xpm", &(game.win->width), &(game.win->height));
+	mlx_put_image_to_window(game.win->mlx_ptr, game.win->win_ptr, img, 0, 0);
+	if (game.win->mlx_ptr == NULL || game.win->win_ptr == NULL)
 		return(1);
-	mlx_loop(window.mlx_ptr);
+	mlx_loop(game.win->mlx_ptr);
 	return (0);
 }

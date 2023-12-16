@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/16 21:41:43 by adanylev         ###   ########.fr       */
+/*   Created: 2023/09/24 19:24:33 by adanylev          #+#    #+#             */
+/*   Updated: 2023/12/16 20:36:09 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <time.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include "mlx/mlx.h"
-# include "lib/libft.h"
-
-
-typedef	struct	s_window
-{	
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		height;
-	int		width;
-}			t_window;
-
-typedef	struct	s_long
+int	ft_printstr(char *s, int *err)
 {
-	t_window	win;
-}			t_long;
+	int	i;
 
-
-
-t_long new_program(int w, int h, char *str);
-
-#endif
+	i = 0;
+	if (!s)
+		s = "(null)";
+	while (s[i] && !*err)
+	{
+		ft_printchar(s[i], err);
+		i++;
+	}
+	return (i);
+}
