@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/16 21:41:43 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/17 16:40:39 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ typedef	struct	s_window
 typedef	struct	s_long
 {
 	t_window	win;
-}			t_long;
+}				t_long;
 
 
 
-t_long new_program(int w, int h, char *str);
+t_window new_program(int w, int h, char *str);
+char	**map_parsing(int argc, char **argv);
+char	**get_map(char *tmp);
 
 #endif
