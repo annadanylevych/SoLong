@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/17 19:01:23 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:51:09 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,12 @@ typedef	struct	s_long
 
 t_window new_program(int w, int h, char *str);
 char	**map_parsing(int argc, char **argv);
+char	**map_parsing1(int fd, char *line, char *tmp, char **map);
 char	**get_map(char *tmp);
-void	check_map1(int j, char **map);
-void	check_map(char **map);
-int	ft_strrncmp(char *s1, char*s2, int n);
+void	check_walls1(int j, char **map);
+void	check_walls(char **map);
+int		ft_strrncmp(char *s1, char*s2, int n);
+void	map_error(char *msg, char **map);
+void	check_chars(char **map);
 
 #endif

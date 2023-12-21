@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:59:38 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/17 19:04:48 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:04:27 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 	while (map[i])
 	{
 		ft_printf("%s", map[i]);
+		write(1, "\n", 1);
 		i++;
 	}
 	return (0);
