@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/21 12:51:09 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:38:02 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@
 # include "mlx/mlx.h"
 # include "lib/libft.h"
 
+typedef struct	s_map
+{
+	char	**grid;
+	int		person;
+	int		coin;
+	int		exit;
+	int		height;
+	int		width;	
+}			t_map;
+
 
 typedef	struct	s_window
 {	
@@ -33,6 +43,7 @@ typedef	struct	s_window
 typedef	struct	s_long
 {
 	t_window	win;
+	t_map		map;
 }				t_long;
 
 
@@ -45,6 +56,7 @@ void	check_walls1(int j, char **map);
 void	check_walls(char **map);
 int		ft_strrncmp(char *s1, char*s2, int n);
 void	map_error(char *msg, char **map);
-void	check_chars(char **map);
+void	check_chars(char **map, char *accept, int i);
+void	map_check(t_map	map);
 
 #endif

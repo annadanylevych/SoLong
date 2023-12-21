@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:06:46 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/21 12:51:00 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:11:20 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,6 @@ void	check_walls1(int j, char **map)
 			map_error("Error: no walls around\n", map);
 		i++;
 	}
-	check_chars(map);
+	i = 0;
+	check_chars(map, "10PEC", i);
 }

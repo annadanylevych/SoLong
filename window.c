@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:59:38 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/21 13:04:27 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:41:47 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,40 +34,23 @@ void start(t_long *game)
 
 int	main(int argc, char **argv)
 {
-//	t_long	game;
-	char	**map;
+	t_long	game;
 	int	i;
 	
 	i = 0;
-	map = map_parsing(argc, argv);
-	while (map[i])
+	game.map.grid = map_parsing(argc, argv);
+	map_check(game.map);
+	
+	while (game.map.grid[i])
 	{
-		ft_printf("%s", map[i]);
+		ft_printf("%s", game.map.grid[i]);
 		write(1, "\n", 1);
 		i++;
 	}
 	return (0);
 }
 
-int	ft_strrncmp(char *s1, char*s2, int n)
-{
-	int	i;
-	int	j;
 
-	i = ft_strleng(s1) - 1;
-	j = ft_strleng(s2) - 1;
-	while (n)
-	{
-		if (s2[j] != s1[i])
-			return (1);
-		j--;
-		i--;
-		n--;
-	}
-	if (n)
-		return (1);
-	return (0);
-}	
 
 
 
