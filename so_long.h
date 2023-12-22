@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/21 16:38:02 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:25:16 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,23 @@
 # include "mlx/mlx.h"
 # include "lib/libft.h"
 
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
+
 typedef struct	s_map
 {
 	char	**grid;
+	char	**fill;
 	int		person;
 	int		coin;
 	int		exit;
-	int		height;
-	int		width;	
+	t_point	pers;
+	t_point	*coins;
+	t_point	salida;
+	t_point	size;
 }			t_map;
 
 
@@ -57,6 +66,9 @@ void	check_walls(char **map);
 int		ft_strrncmp(char *s1, char*s2, int n);
 void	map_error(char *msg, char **map);
 void	check_chars(char **map, char *accept, int i);
-void	map_check(t_map	map);
+void	map_check(t_map	*map);
+void	check_amounts(t_map *map);
+void	filled_map(t_map *map);
+void	flood_fill(char **filled, t_point size, t_point begin);
 
 #endif

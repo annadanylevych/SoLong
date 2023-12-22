@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:59:38 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/21 16:41:47 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:10:13 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int	main(int argc, char **argv)
 	
 	i = 0;
 	game.map.grid = map_parsing(argc, argv);
-	map_check(game.map);
-	
-	while (game.map.grid[i])
+	map_check(&game.map);
+	filled_map(&game.map);
+	while (game.map.fill[i])
 	{
-		ft_printf("%s", game.map.grid[i]);
-		write(1, "\n", 1);
+		ft_printf("%s\n", game.map.fill[i]);
 		i++;
 	}
+	
 	return (0);
 }
 

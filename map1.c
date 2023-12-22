@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:16:34 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/21 16:42:04 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:10:30 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,41 @@ int	ft_strrncmp(char *s1, char*s2, int n)
 	return (0);
 }	
 
-void	map_check(t_map	map)
+void	map_initial(t_map *map)
 {
 	int	i;
 
 	i = 0;
-	while (map.grid[i])
+	map->coin = 0;
+	map->exit = 0;
+	map->person = 0;
+	while (map->grid[i])
 		i++;
-	map.height = i;
-	map.width = ft_strleng(map.grid[0]);
-	ft_printf("height: %d\n", map.height);
-	ft_printf("width: %d\n", map.width);
+	map->size.y = i;
+	map->size.x = ft_strleng(map->grid[0]);
+}
+
+void	map_check(t_map	*map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	map_initial(map);
+	while (map->grid[i])
+	{
+		j = 0;
+		while (map->grid[i][j])
+		{
+			if (map->grid[i][j] == 'E')
+				map->exit++;
+			else if (map->grid[i][j] == 'C')
+				map->coin++;
+			else if (map->grid[i][j] == 'P')
+				map->person++;
+			j++;
+		}
+		i++;
+	}
+	check_amounts(map);
 }
