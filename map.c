@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:06:46 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/21 15:11:20 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:34:31 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	**map_parsing(int argc, char **argv)
 	{
 		write(2, "Error: incorrect input\n", 24);
 		free(tmp);
-		exit (1);
+		exit(1);
 	}
 	map = map_parsing1(fd, line, tmp, map);
 	return (map);
@@ -53,7 +53,7 @@ char	**get_map(char *tmp)
 {
 	char	**map;
 	int		i;
-	
+
 	map = ft_split(tmp, '\n');
 	i = 0;
 	while (map[0][i] && map[0][i] != '\n')
@@ -101,7 +101,7 @@ void	check_walls(char **map)
 
 void	check_walls1(int j, char **map)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (map[j][i])

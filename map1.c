@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:16:34 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/22 16:10:30 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:33:57 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	map_error(char *msg, char **map)
 {
 	int	i;
-	
+
 	write(2, msg, ft_strleng(msg));
 	i = 0;
 	while (map[i])
@@ -24,14 +24,14 @@ void	map_error(char *msg, char **map)
 		map[i] = NULL;
 		i++;
 	}
-	exit (1);
+	exit(1);
 }
 
 void	check_chars(char **map, char *accept, int i)
 {
 	int	j;
 	int	p;
-	
+
 	while (map[i])
 	{
 		j = 0;
@@ -47,14 +47,14 @@ void	check_chars(char **map, char *accept, int i)
 			{
 				p++;
 				if (!accept[p])
-					map_error("Error: unacceptable characters\n", map);			
-			}		
+					map_error("Error: unacceptable characters\n", map);
+			}
 		}
-		i++;				
+		i++;
 	}
 }
 
-int	ft_strrncmp(char *s1, char*s2, int n)
+int	ft_strrncmp(char *s1, char *s2, int n)
 {
 	int	i;
 	int	j;
@@ -72,7 +72,7 @@ int	ft_strrncmp(char *s1, char*s2, int n)
 	if (n)
 		return (1);
 	return (0);
-}	
+}
 
 void	map_initial(t_map *map)
 {
@@ -88,10 +88,10 @@ void	map_initial(t_map *map)
 	map->size.x = ft_strleng(map->grid[0]);
 }
 
-void	map_check(t_map	*map)
+void	map_check(t_map *map)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 0;
 	map_initial(map);
