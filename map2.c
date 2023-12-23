@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:01:04 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/22 19:45:58 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/23 12:54:51 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	get_coords(t_map *map)
 		j = 0;
 		while (map->grid[i][j])
 		{
-			printf("map is: %c\n", map->grid[i][j]);
 			if (map->grid[i][j] == 'E')
 				coords_init(&map->salida, i, j);
 			else if (map->grid[i][j] == 'C')
@@ -69,6 +68,7 @@ void	filled_map(t_map *map)
 		}
 		i++;
 	}
+	map->coins = ft_calloc((size_t)map->coin, sizeof(char));
 	get_coords(map);
 	flood_fill(map->fill, map->size, map->pers);
 }
@@ -85,7 +85,8 @@ void	fill(char **tab, t_point size, t_point cur, char to_fill)
 	fill(tab, size, (t_point){cur.x, cur.y + 1}, to_fill);
 }
 
+
 void	flood_fill(char **filled, t_point size, t_point begin)
 {
-	fill(filled, size, begin, filled[begin.x][begin.y]);
+	fill(filled, size, begin, filled[begin.y][begin.x]);
 }
