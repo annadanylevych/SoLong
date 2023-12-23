@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:05 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/23 12:26:16 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:46:20 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,46 @@ char	**filling_map(t_map *map)
 	}
 	newmap[i] = NULL;
 	return (newmap);
+}
+
+void	check_path(t_map *map)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	while (map->fill[i])
+	{
+		j = 0;
+		while (map->fill[i][j])
+		{
+			if (map->fill[i][j] == '0')
+			{
+				if (check_if_empty(i, j, map) == );
+			}
+		}
+	}
+}
+
+int	check_if_empty(int i, int j, t_map *map)
+{
+	while (map->fill[i][j] == 0)
+	{
+		
+	}
+}
+
+void	big_error(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (map->fill[i])
+	{
+		free(map->fill[i]);
+		map->fill[i] = NULL;
+		i++;
+	}
+	free(map->coins);
+	map_error("Error: Imvalid map.\n", map->grid);
 }

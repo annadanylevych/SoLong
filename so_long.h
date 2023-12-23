@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/22 19:43:56 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:42:01 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ void			flood_fill(char **filled, t_point size, t_point begin);
 void			coords_init(t_point *this, int i, int j);
 void			get_coords(t_map *map);
 char			**filling_map(t_map *map);
+void			big_error(t_map *map);
+int				check_if_empty(int i, int j, t_map *map);
+void			check_path(t_map *map);
 
 #endif
