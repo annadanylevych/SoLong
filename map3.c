@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map3.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: annadanylevych <annadanylevych@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:05 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/23 16:46:20 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/25 13:04:23 by annadanylev      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,31 @@ void	check_path(t_map *map)
 		{
 			if (map->fill[i][j] == '0')
 			{
-				if (check_if_empty(i, j, map) == );
+				if (check_if_empty(i, j, map) == 0)
+					big_error(map);
 			}
+			j++;
 		}
+		i++;
 	}
 }
 
 int	check_if_empty(int i, int j, t_map *map)
 {
-	while (map->fill[i][j] == 0)
+	while (map->fill[i])
 	{
-		
+		while (map->fill[i][j])
+		{
+			if (map->fill[i][j] == '0')
+			{
+				if (map->grid[i][j + 1] != '0' && map->grid[i][j + 1] != '1')
+					return (0);
+			}
+			j++;
+		}
+		i++;
 	}
+	return (1);
 }
 
 void	big_error(t_map *map)
@@ -80,5 +93,5 @@ void	big_error(t_map *map)
 		i++;
 	}
 	free(map->coins);
-	map_error("Error: Imvalid map.\n", map->grid);
+	map_error("Error: Invalid map.\n", map->grid);
 }
