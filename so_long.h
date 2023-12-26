@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/26 15:37:19 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:52:05 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@
 # include <stdlib.h>
 # include <time.h>
 # include <unistd.h>
+
+typedef struct	s_sprites
+{
+	void	*backround;
+	void	*duck;
+	void	*exit;
+	void	**coins;
+	void	*ending;
+}			t_sprites;
 
 typedef struct s_point
 {
@@ -50,6 +59,7 @@ typedef struct s_long
 {
 	t_window	win;
 	t_map		map;
+	t_sprites	imgs;
 }				t_long;
 
 t_window		new_program(int w, int h, char *str);
@@ -71,5 +81,8 @@ char			**filling_map(t_map *map);
 void			big_error(t_map *map);
 int				check_if_empty(int i, int j, t_map *map);
 void			check_path(t_map *map);
+void			fill_blue(t_long *game);
+void			start(t_long *game);
+void			fill_sprites(t_long *game);
 
 #endif
