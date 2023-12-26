@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annadanylevych <annadanylevych@student.    +#+  +:+       +#+        */
+/*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:01:04 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/25 13:03:33 by annadanylev      ###   ########.fr       */
+/*   Updated: 2023/12/26 12:57:48 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	filled_map(t_map *map)
 		}
 		i++;
 	}
-	map->coins = ft_calloc((size_t)map->coin, sizeof(char));
+	map->coins = ft_calloc((size_t)map->coin, sizeof(t_point));
 	get_coords(map);
 	flood_fill(map->fill, map->size, map->pers);
 	check_path(map);

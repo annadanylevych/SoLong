@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:16:34 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/22 17:33:57 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/26 14:00:29 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	map_initial(t_map *map)
 		i++;
 	map->size.y = i;
 	map->size.x = ft_strleng(map->grid[0]);
+	if (map->size.x > 40 || map->size.y > 21)
+		map_error("Error: map is too big :(\n", map->grid);
 }
 
 void	map_check(t_map *map)

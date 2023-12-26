@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/23 16:42:01 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/26 15:37:19 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ typedef struct s_window
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	int			height;
-	int			width;
 }				t_window;
 
 typedef struct s_long

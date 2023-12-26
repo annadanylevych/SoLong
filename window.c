@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:59:38 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/22 19:30:36 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/26 15:33:37 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,25 @@ t_window	new_program(int w, int h, char *str)
 void	start(t_long *game)
 {
 	void	*img;
-
-	game->win = new_program(1920, 1080, "So Long");
+	int		x;
+	int		y;
+	
+	y = 0;
+	game->win = new_program(game->map.size.x * 64, game->map.size.y * 64, "So Long");
 	img = mlx_xpm_file_to_image(game->win.mlx_ptr, "background.xpm",
-			&game->win.width, &game->win.height);
-	mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, img, 0, 0);
-	// if (game->win.mlx_ptr == NULL || game->win.win_ptr == NULL)
-	// 	return(1);
+			&game->map.size.x, &game->map.size.y);
+	while (y <= game->map.size.y * 64)
+	{
+		x = 0;
+		while (x <= game->map.size.x * 64)
+		{
+			mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, img, y, x);
+			x = x + 64;
+		}
+		y = y + 64;
+	}
+	if (game->win.mlx_ptr == NULL || game->win.win_ptr == NULL)
+		return ;
 	mlx_loop(game->win.mlx_ptr);
 }
 
@@ -42,11 +54,6 @@ int	main(int argc, char **argv)
 	game.map.grid = map_parsing(argc, argv);
 	map_check(&game.map);
 	filled_map(&game.map);
-	while (game.map.fill[i])
-	{
-		ft_printf("%s\n", game.map.fill[i]);
-		i++;
-	}
-	i = 0;
+	start(&game);
 	return (0);
 }
