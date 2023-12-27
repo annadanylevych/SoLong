@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:16:34 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/26 14:00:29 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/27 14:47:37 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ void	map_check(t_map *map)
 				map->coin++;
 			else if (map->grid[i][j] == 'P')
 				map->person++;
+			else if (map->grid[i][j] == '1')
+				map->pared++;
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:01:04 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/26 12:57:48 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/27 15:31:57 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	fill(char **tab, t_point size, t_point cur, char to_fill)
 	fill(tab, size, (t_point){cur.x, cur.y - 1}, to_fill);
 	fill(tab, size, (t_point){cur.x, cur.y + 1}, to_fill);
 }
-
 
 void	flood_fill(char **filled, t_point size, t_point begin)
 {

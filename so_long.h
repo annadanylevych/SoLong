@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/26 17:52:05 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:06:21 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ typedef struct	s_sprites
 	void	*backround;
 	void	*duck;
 	void	*exit;
-	void	**coins;
+	void	*coins;
 	void	*ending;
+	void	*wall;
 }			t_sprites;
 
 typedef struct s_point
@@ -43,6 +44,8 @@ typedef struct s_map
 	int			person;
 	int			coin;
 	int			exit;
+	int			pared;
+	t_point		*wall;
 	t_point		pers;
 	t_point		*coins;
 	t_point		salida;
@@ -84,5 +87,7 @@ void			check_path(t_map *map);
 void			fill_blue(t_long *game);
 void			start(t_long *game);
 void			fill_sprites(t_long *game);
+void			put_sprites(t_long *game);
+void			walls(t_long *game);
 
 #endif

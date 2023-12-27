@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:39:09 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/26 18:17:54 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:06:58 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	start(t_long *game)
 	game->win = new_program(game->map.size.x * 64, game->map.size.y * 64, "So Long");
 	fill_blue(game);
 	fill_sprites(game);
-	mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.duck, 0, 0);
+	put_sprites(game);
+	
 	mlx_loop(game->win.mlx_ptr);
 }
 
@@ -33,9 +34,7 @@ void	fill_blue(t_long *game)
 {
 	int		x;
 	int		y;
-	int	size;
 	
-	size = 64;
 	y = 0;
 	game->imgs.backround = mlx_xpm_file_to_image(game->win.mlx_ptr, "background.xpm",
 			&game->map.size.x, &game->map.size.y);
@@ -56,20 +55,18 @@ void	fill_blue(t_long *game)
 void	fill_sprites(t_long *game)
 {
 	int	size;
-	int	i;
 
-	size = 100;
-	i = 0;
+	size = 1;
 	game->imgs.duck = mlx_xpm_file_to_image(game->win.mlx_ptr, "duck.xpm", &size, &size);
 	game->imgs.exit = mlx_xpm_file_to_image(game->win.mlx_ptr, "green_duck.xpm", &size, &size);
 	game->imgs.ending = mlx_xpm_file_to_image(game->win.mlx_ptr, "final.xpm", &size, &size);
-	game->imgs.coins = malloc(sizeof(char *) * game->map.coin);
-	if (!game->imgs.coins)
-		big_error(&game->map);
-	while (i < game->map.coin)
-	{
-		game->imgs.coins[i] = mlx_xpm_file_to_image(game->win.mlx_ptr, "baguette.xpm.xpm", &size, &size);
-		i++;
-	}
-	game->imgs.coins[i] = NULL;
+	game->imgs.wall = mlx_xpm_file_to_image(game->win.mlx_ptr, "green_leaf.xpm", &size, &size);
+	game->imgs.coins = mlx_xpm_file_to_image(game->win.mlx_ptr, "baguette.xpm.xpm", &size, &size);
+}
+
+void	put_sprites(t_long *game)
+{
+	mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.duck, game->map.pers.x * 64, game->map.pers.y * 64);
+	mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.exit, game->map.salida.x * 64, game->map.salida.y * 64);
+	walls (game);
 }
