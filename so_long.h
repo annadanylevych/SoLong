@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/27 16:06:21 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:43:50 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,8 @@ void			start(t_long *game);
 void			fill_sprites(t_long *game);
 void			put_sprites(t_long *game);
 void			walls(t_long *game);
+void			coins(t_long *game);
+int				function(t_long *game);
+int				function1(int event, t_long *game);
 
 #endif

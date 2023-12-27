@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:39:09 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/27 16:06:58 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:46:30 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	start(t_long *game)
 	fill_blue(game);
 	fill_sprites(game);
 	put_sprites(game);
-	
+	mlx_key_hook(game->win.win_ptr, function1, game);
+	mlx_hook(game->win.win_ptr, 17, 0, function, &game);
 	mlx_loop(game->win.mlx_ptr);
 }
 
@@ -61,7 +62,7 @@ void	fill_sprites(t_long *game)
 	game->imgs.exit = mlx_xpm_file_to_image(game->win.mlx_ptr, "green_duck.xpm", &size, &size);
 	game->imgs.ending = mlx_xpm_file_to_image(game->win.mlx_ptr, "final.xpm", &size, &size);
 	game->imgs.wall = mlx_xpm_file_to_image(game->win.mlx_ptr, "green_leaf.xpm", &size, &size);
-	game->imgs.coins = mlx_xpm_file_to_image(game->win.mlx_ptr, "baguette.xpm.xpm", &size, &size);
+	game->imgs.coins = mlx_xpm_file_to_image(game->win.mlx_ptr, "baguette.xpm", &size, &size);
 }
 
 void	put_sprites(t_long *game)
@@ -69,4 +70,5 @@ void	put_sprites(t_long *game)
 	mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.duck, game->map.pers.x * 64, game->map.pers.y * 64);
 	mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.exit, game->map.salida.x * 64, game->map.salida.y * 64);
 	walls (game);
+	coins (game);
 }

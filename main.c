@@ -6,11 +6,13 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:59:38 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/27 12:56:27 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:40:15 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+
 
 int	main(int argc, char **argv)
 {
