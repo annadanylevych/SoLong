@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:51:43 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/27 18:42:22 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:37:04 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,31 @@ int	function(t_long *game)
 	return (1);
 }
 
-int	function1(int event, t_long *game)
+int	hook_up(int event, t_long *game)
 {
-	(void)game;
-	ft_printf("%d\n", event);
+	if (event == 13)
+		go_up(game);
+	else if (event == 1)
+		go_down(game);
+	else if (event == 2)
+		go_right(game);
+	else if (event == 0)
+		go_left(game);
+	else if (event == 53)
+		function(game);
 	return (0);
 }
 
+void	got_baguette(t_long *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < game->map.coin)
+	{
+		if (game->map.pers.x == game->map.coins[i].x && game->map.pers.y == game->map.coins[i].y)
+			game->map.coin--;
+		i++;
+	}
+}
 

@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:39:09 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/27 18:46:30 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:57:02 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	start(t_long *game)
 	fill_blue(game);
 	fill_sprites(game);
 	put_sprites(game);
-	mlx_key_hook(game->win.win_ptr, function1, game);
-	mlx_hook(game->win.win_ptr, 17, 0, function, &game);
+	mlx_key_hook(game->win.win_ptr, hook_up, game);
+	mlx_hook(game->win.win_ptr, 17, 0, function, game);
 	mlx_loop(game->win.mlx_ptr);
 }
 
@@ -67,6 +67,7 @@ void	fill_sprites(t_long *game)
 
 void	put_sprites(t_long *game)
 {
+	game->moves = 0;
 	mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.duck, game->map.pers.x * 64, game->map.pers.y * 64);
 	mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.exit, game->map.salida.x * 64, game->map.salida.y * 64);
 	walls (game);

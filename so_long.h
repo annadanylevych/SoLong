@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/27 18:43:50 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:39:01 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_long
 	t_window	win;
 	t_map		map;
 	t_sprites	imgs;
+	int			moves;
 }				t_long;
 
 t_window		new_program(int w, int h, char *str);
@@ -91,6 +92,12 @@ void			put_sprites(t_long *game);
 void			walls(t_long *game);
 void			coins(t_long *game);
 int				function(t_long *game);
-int				function1(int event, t_long *game);
+int				hook_up(int event, t_long *game);
+void			go_up(t_long *game);
+void			win(t_long *game);
+void			go_down(t_long *game);
+void			go_right(t_long *game);
+void			go_left(t_long *game);
+void			got_baguette(t_long *game);
 
 #endif

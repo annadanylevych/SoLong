@@ -1,4 +1,4 @@
-SRCS = window.c map.c map1.c map2.c map3.c main.c window1.c
+SRCS = window.c map.c map1.c map2.c map3.c main.c window1.c hookies.c
 
 OBJS = $(SRCS:.c=.o)
 
