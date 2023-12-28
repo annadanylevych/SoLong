@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:01:04 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/27 15:31:57 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/28 19:01:17 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	get_coords(t_map *map)
 {
 	int	i;
 	int	j;
-	int p;
+	int	p;
 
 	i = 0;
 	p = 0;

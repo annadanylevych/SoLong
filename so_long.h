@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/28 17:39:01 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/28 19:01:08 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@
 # include <time.h>
 # include <unistd.h>
 
-typedef struct	s_sprites
+typedef struct s_sprites
 {
-	void	*backround;
-	void	*duck;
-	void	*exit;
-	void	*coins;
-	void	*ending;
-	void	*wall;
-}			t_sprites;
+	void		*backround;
+	void		*duck;
+	void		*exit;
+	void		*coins;
+	void		*ending;
+	void		*wall;
+}				t_sprites;
 
 typedef struct s_point
 {

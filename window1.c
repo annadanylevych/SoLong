@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:51:43 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/28 17:37:04 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/28 19:05:49 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	walls(t_long *game)
 {
 	int	y;
 	int	x;
-	
+
 	y = 0;
 	while (game->map.grid[y])
 	{
@@ -25,7 +25,8 @@ void	walls(t_long *game)
 		{
 			if (game->map.grid[y][x] == '1')
 			{
-				mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.wall, x * 64, y * 64);
+				mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr,
+					game->imgs.wall, x * 64, y * 64);
 			}
 			x++;
 		}
@@ -37,7 +38,7 @@ void	coins(t_long *game)
 {
 	int	y;
 	int	x;
-	
+
 	y = 0;
 	while (game->map.grid[y])
 	{
@@ -46,7 +47,8 @@ void	coins(t_long *game)
 		{
 			if (game->map.grid[y][x] == 'C')
 			{
-				mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr, game->imgs.coins, x * 64, y * 64);
+				mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr,
+					game->imgs.coins, x * 64, y * 64);
 			}
 			x++;
 		}
@@ -57,7 +59,7 @@ void	coins(t_long *game)
 int	function(t_long *game)
 {
 	(void)game;
-	exit (1);
+	exit(1);
 	return (1);
 }
 
@@ -73,6 +75,7 @@ int	hook_up(int event, t_long *game)
 		go_left(game);
 	else if (event == 53)
 		function(game);
+	ft_printf("MOVES: %d\n", game->moves);
 	return (0);
 }
 
@@ -83,9 +86,9 @@ void	got_baguette(t_long *game)
 	i = 0;
 	while (i < game->map.coin)
 	{
-		if (game->map.pers.x == game->map.coins[i].x && game->map.pers.y == game->map.coins[i].y)
+		if (game->map.pers.x == game->map.coins[i].x
+			&& game->map.pers.y == game->map.coins[i].y)
 			game->map.coin--;
 		i++;
 	}
 }
-

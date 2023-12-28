@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:05 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/26 12:56:49 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/28 19:02:01 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	coords_init(t_point *this, int i, int j)
 char	**filling_map(t_map *map)
 {
 	char	**newmap;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	newmap = malloc(sizeof(char *) * (map->size.y + 1));
@@ -45,7 +45,7 @@ void	check_path(t_map *map)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (map->fill[i])
 	{
@@ -83,7 +83,7 @@ int	check_if_empty(int i, int j, t_map *map)
 
 void	big_error(t_map *map)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (map->fill[i])
