@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:05 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/28 19:02:01 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/29 12:49:20 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	check_if_empty(int i, int j, t_map *map)
 
 void	big_error(t_map *map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map->fill[i])

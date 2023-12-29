@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:51:43 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/28 19:05:49 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:16:02 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,16 @@ int	function(t_long *game)
 
 int	hook_up(int event, t_long *game)
 {
-	if (event == 13)
+	if (event == 13 && !game->won)
 		go_up(game);
-	else if (event == 1)
+	else if (event == 1 && !game->won)
 		go_down(game);
-	else if (event == 2)
+	else if (event == 2 && !game->won)
 		go_right(game);
-	else if (event == 0)
+	else if (event == 0 && !game->won)
 		go_left(game);
 	else if (event == 53)
 		function(game);
-	ft_printf("MOVES: %d\n", game->moves);
 	return (0);
 }
 

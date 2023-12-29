@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/28 19:01:08 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:03:52 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_sprites
 	void		*coins;
 	void		*ending;
 	void		*wall;
+	void		*duck_left;
 }				t_sprites;
 
 typedef struct s_point
@@ -64,6 +65,7 @@ typedef struct s_long
 	t_map		map;
 	t_sprites	imgs;
 	int			moves;
+	int			won;
 }				t_long;
 
 t_window		new_program(int w, int h, char *str);

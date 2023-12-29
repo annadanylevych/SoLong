@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:01:49 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/28 19:08:13 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:16:34 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	go_up(t_long *game)
 		mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr,
 			game->imgs.duck, game->map.pers.x * 64, game->map.pers.y * 64);
 		game->moves++;
+		ft_printf("MOVES: %d\n", game->moves);
 		got_baguette(game);
 		win(game);
 	}
@@ -43,6 +44,7 @@ void	go_down(t_long *game)
 		mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr,
 			game->imgs.duck, game->map.pers.x * 64, game->map.pers.y * 64);
 		game->moves++;
+		ft_printf("MOVES: %d\n", game->moves);
 		got_baguette(game);
 		win(game);
 	}
@@ -61,6 +63,7 @@ void	go_right(t_long *game)
 		mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr,
 			game->imgs.duck, game->map.pers.x * 64, game->map.pers.y * 64);
 		game->moves++;
+		ft_printf("MOVES: %d\n", game->moves);
 		got_baguette(game);
 		win(game);
 	}
@@ -77,8 +80,9 @@ void	go_left(t_long *game)
 			game->imgs.backround, game->map.pers.x * 64, game->map.pers.y * 64);
 		game->map.pers.x--;
 		mlx_put_image_to_window(game->win.mlx_ptr, game->win.win_ptr,
-			game->imgs.duck, game->map.pers.x * 64, game->map.pers.y * 64);
+			game->imgs.duck_left, game->map.pers.x * 64, game->map.pers.y * 64);
 		game->moves++;
+		ft_printf("MOVES: %d\n", game->moves);
 		got_baguette(game);
 		win(game);
 	}
@@ -86,8 +90,8 @@ void	go_left(t_long *game)
 
 void	win(t_long *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	if (game->map.pers.x == game->map.salida.x
@@ -104,6 +108,6 @@ void	win(t_long *game)
 			}
 			y = y + 64;
 		}
-		
+		game->won = 1;
 	}
 }

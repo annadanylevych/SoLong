@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:06:46 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/22 17:34:31 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/29 12:46:41 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**map_parsing(int argc, char **argv)
 	if (!tmp)
 		return (NULL);
 	fd = open(argv[1], O_RDONLY);
-	if (argc != 2 || ft_strrncmp(argv[1], ".ber", 4) || fd < 0)
+	if (argc != 2 || ft_strrncmp(argv[1], ".ber", 4) || fd < 0 || !argv[1])
 	{
 		write(2, "Error: incorrect input\n", 24);
 		free(tmp);
@@ -37,6 +37,9 @@ char	**map_parsing(int argc, char **argv)
 
 char	**map_parsing1(int fd, char *line, char *tmp, char **map)
 {
+	int	i;
+
+	i = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -45,6 +48,16 @@ char	**map_parsing1(int fd, char *line, char *tmp, char **map)
 		line = get_next_line(fd);
 	}
 	free(line);
+	while (tmp[i])
+	{
+		if (tmp[i] == '\n' && tmp[i + 1] == '\n')
+		{
+			write(2, "Error: invalid map\n", 20);
+			free(tmp);
+			exit(1);
+		}
+		i++;
+	}
 	map = get_map(tmp);
 	return (map);
 }
@@ -55,6 +68,7 @@ char	**get_map(char *tmp)
 	int		i;
 
 	map = ft_split(tmp, '\n');
+	free(tmp);
 	i = 0;
 	while (map[0][i] && map[0][i] != '\n')
 	{
@@ -101,7 +115,7 @@ void	check_walls(char **map)
 
 void	check_walls1(int j, char **map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map[j][i])

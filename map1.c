@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:16:34 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/28 17:19:35 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/29 12:47:49 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ void	map_initial(t_map *map)
 
 void	map_check(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	map_initial(map);
