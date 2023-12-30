@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:01:49 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/29 15:16:34 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:03:30 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	go_up(t_long *game)
 {
 	if (game->map.pers.x == game->map.salida.x && game->map.pers.y
-		- 1 == game->map.salida.y && game->map.coin > 0)
+		- 1 == game->map.salida.y && game->map.coin != game->map.collected)
 		return ;
 	else if (game->map.grid[game->map.pers.y - 1][game->map.pers.x] != '1')
 	{
@@ -34,7 +34,7 @@ void	go_up(t_long *game)
 void	go_down(t_long *game)
 {
 	if (game->map.pers.x == game->map.salida.x && game->map.pers.y
-		+ 1 == game->map.salida.y && game->map.coin > 0)
+		+ 1 == game->map.salida.y && game->map.coin != game->map.collected)
 		return ;
 	else if (game->map.grid[game->map.pers.y + 1][game->map.pers.x] != '1')
 	{
@@ -53,7 +53,8 @@ void	go_down(t_long *game)
 void	go_right(t_long *game)
 {
 	if (game->map.pers.x + 1 == game->map.salida.x
-		&& game->map.pers.y == game->map.salida.y && game->map.coin > 0)
+		&& game->map.pers.y == game->map.salida.y
+		&& game->map.coin != game->map.collected)
 		return ;
 	else if (game->map.grid[game->map.pers.y][game->map.pers.x + 1] != '1')
 	{
@@ -72,7 +73,8 @@ void	go_right(t_long *game)
 void	go_left(t_long *game)
 {
 	if (game->map.pers.x - 1 == game->map.salida.x
-		&& game->map.pers.y == game->map.salida.y && game->map.coin > 0)
+		&& game->map.pers.y == game->map.salida.y
+		&& game->map.coin != game->map.collected)
 		return ;
 	else if (game->map.grid[game->map.pers.y][game->map.pers.x - 1] != '1')
 	{
@@ -94,8 +96,9 @@ void	win(t_long *game)
 	int	y;
 
 	y = 0;
-	if (game->map.pers.x == game->map.salida.x
-		&& game->map.pers.y == game->map.salida.y && game->map.coin == 0)
+	if (game->map.coin >= game->map.collected
+		&& game->map.pers.x == game->map.salida.x
+		&& game->map.pers.y == game->map.salida.y)
 	{
 		while (y <= game->map.size.y * 64)
 		{

@@ -23,7 +23,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) make_libs
 	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFTDIR) \
-	-lft -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	-lft -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) #-g -fsanitize=address
 
 make_libs:
 	$(MAKE) -C $(LIBFTDIR)

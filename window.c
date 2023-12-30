@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:39:09 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/29 15:12:10 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/30 13:06:36 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void	fill_sprites(t_long *game)
 			&size, &size);
 	game->imgs.coins = mlx_xpm_file_to_image(game->win.mlx_ptr, "baguette.xpm",
 			&size, &size);
-	game->imgs.duck_left = mlx_xpm_file_to_image(game->win.mlx_ptr, "duck_left.xpm",
-			&size, &size);
+	game->imgs.duck_left = mlx_xpm_file_to_image(game->win.mlx_ptr,
+			"duck_left.xpm", &size, &size);
 }
 
 void	put_sprites(t_long *game)

@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:51:43 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/29 15:16:02 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:30:58 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,24 @@ void	coins(t_long *game)
 
 int	function(t_long *game)
 {
-	(void)game;
+	int	i;
+
+	i = 0;
+	while (game->map.grid[i])
+	{
+		free(game->map.grid[i]);
+		game->map.grid[i] = NULL;
+		i++;
+	}
+	i = 0;
+	while (game->map.fill[i])
+	{
+		free(game->map.fill[i]);
+		game->map.fill[i] = NULL;
+		i++;
+	}
+	free(game->map.coins);
+	game->map.coins = NULL;
 	exit(1);
 	return (1);
 }
@@ -83,11 +100,15 @@ void	got_baguette(t_long *game)
 	int	i;
 
 	i = 0;
-	while (i < game->map.coin)
+	while (game->map.coin > i)
 	{
 		if (game->map.pers.x == game->map.coins[i].x
 			&& game->map.pers.y == game->map.coins[i].y)
-			game->map.coin--;
+		{
+			game->map.coins[i].x = 0;
+			game->map.coins[i].y = 0;
+			game->map.collected++;
+		}
 		i++;
 	}
 }

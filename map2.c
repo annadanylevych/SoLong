@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:01:04 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/29 12:48:05 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:58:36 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,13 @@ void	filled_map(t_map *map)
 		j = 0;
 		while (map->fill[i][j])
 		{
-			if (map->fill[i][j] == 'C' || map->fill[i][j] == 'P'
-				|| map->fill[i][j] == 'E')
+			if (map->fill[i][j] == 'C' || map->fill[i][j] == 'P')
 				map->fill[i][j] = '0';
 			j++;
 		}
 		i++;
 	}
-	map->coins = ft_calloc((size_t)map->coin, sizeof(t_point));
+	map->coins = malloc(map->coin * (sizeof(t_point) + 1));
 	get_coords(map);
 	flood_fill(map->fill, map->size, map->pers);
 	check_path(map);

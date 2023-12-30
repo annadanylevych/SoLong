@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:29:05 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/29 12:49:20 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:09:24 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ char	**filling_map(t_map *map)
 	while (map->grid[i])
 	{
 		j = 0;
-		newmap[i] = malloc(sizeof(char) * map->size.x);
+		newmap[i] = malloc(sizeof(char) * map->size.x + 1);
 		while (map->grid[i][j])
 		{
 			newmap[i][j] = map->grid[i][j];
 			j++;
 		}
+		newmap[i][j] = '\0';
 		i++;
 	}
 	newmap[i] = NULL;
@@ -47,6 +48,7 @@ void	check_path(t_map *map)
 	int	j;
 
 	i = 0;
+	map->collected = 0;
 	while (map->fill[i])
 	{
 		j = 0;
@@ -71,7 +73,10 @@ int	check_if_empty(int i, int j, t_map *map)
 		{
 			if (map->fill[i][j] == '0')
 			{
-				if (map->grid[i][j + 1] != '0' && map->grid[i][j + 1] != '1')
+				if (map->grid[i][j + 1] != '0' || map->grid[i][j + 1] != '1')
+					return (0);
+				else if (map->grid[i - 1][j] != '0' ||
+					map->grid[i + 1][j] != '1')
 					return (0);
 			}
 			j++;

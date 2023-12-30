@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:06:46 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/29 12:46:41 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/30 12:27:24 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	**map_parsing1(int fd, char *line, char *tmp, char **map)
 	line = get_next_line(fd);
 	while (line)
 	{
-		tmp = ft_strjoin(tmp, line);
+		tmp = ft_strjoing(tmp, line);
 		free(line);
 		line = get_next_line(fd);
 	}

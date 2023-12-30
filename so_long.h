@@ -6,7 +6,7 @@
 /*   By: adanylev <adanylev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:27:19 by adanylev          #+#    #+#             */
-/*   Updated: 2023/12/29 15:03:52 by adanylev         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:15:32 by adanylev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_map
 	char		**fill;
 	int			person;
 	int			coin;
+	int			collected;
 	int			exit;
 	int			pared;
 	t_point		*wall;
